@@ -210,6 +210,62 @@ window.addEventListener("load", () => {
 
 });
 
+const popup=document.querySelector(".media-popup");
+const popupImg=document.getElementById("popupImage");
+const popupVideo=document.getElementById("popupVideo");
+
+document.querySelectorAll(".gallery-item.image img").forEach(img=>{
+
+img.onclick=()=>{
+
+popup.style.display="flex";
+
+popupImg.style.display="block";
+popupVideo.style.display="none";
+
+popupImg.src=img.src;
+
+};
+
+});
+
+document.querySelectorAll(".gallery-item.video video").forEach(video=>{
+
+video.onclick=()=>{
+
+popup.style.display="flex";
+
+popupVideo.style.display="block";
+popupImg.style.display="none";
+
+popupVideo.src=video.querySelector("source").src;
+
+popupVideo.play();
+
+};
+
+});
+
+document.querySelector(".close-media").onclick=()=>{
+
+popup.style.display="none";
+
+popupVideo.pause();
+
+};
+
+popup.onclick=(e)=>{
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+popupVideo.pause();
+
+}
+
+};
+
 // ===============================
 // Console Message
 // ===============================
