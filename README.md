@@ -1,0 +1,1 @@
+# sms-watta-trust
